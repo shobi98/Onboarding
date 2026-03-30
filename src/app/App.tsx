@@ -10,14 +10,16 @@ import { ReuserType } from "@/app/components/onboarding/ReuserType";
 import { ExplorerType } from "@/app/components/onboarding/ExplorerType";
 import { EmailPreview } from '@/app/components/EmailPreview';
 import { OnboardingV2 } from '@/app/components/onboarding-v2/OnboardingV2';
+import { CommunityHome } from '@/app/components/community/CommunityHome';
+import { AIEnabledEducatorCertificate } from '@/app/components/community/AIEnabledEducatorCertificate';
 
 type EducatorMode = "planter" | "reuser" | "explorer";
-type ViewMode = 'onboarding' | 'email' | 'onboardingV2';
+type ViewMode = 'onboarding' | 'email' | 'onboardingV2' | 'community' | 'certificate';
 
 export default function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [educatorMode, setEducatorMode] = useState<EducatorMode>("planter");
-  const [viewMode, setViewMode] = useState<ViewMode>('onboarding');
+  const [viewMode, setViewMode] = useState<ViewMode>('certificate');
 
   const handleNext = () => {
     setCurrentStep(prev => prev + 1);
@@ -49,6 +51,14 @@ export default function App() {
   };
 
   const showProgress = viewMode === 'onboarding';
+
+  if (viewMode === 'certificate') {
+    return <AIEnabledEducatorCertificate onBack={() => setViewMode('community')} />;
+  }
+
+  if (viewMode === 'community') {
+    return <CommunityHome onBack={() => setViewMode('onboarding')} />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4 py-8 sm:px-6 sm:py-10 gap-4">
@@ -114,6 +124,7 @@ export default function App() {
       {viewMode === 'onboardingV2' && (
         <OnboardingV2 onBack={() => setViewMode('onboarding')} />
       )}
+
 
     </div>
   );

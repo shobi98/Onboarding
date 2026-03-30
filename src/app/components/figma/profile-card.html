@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Prof_Kaya_Hiroko</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #F5F5F5;
+      padding: 24px;
+      color: #333;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Section divider */
+    .card-section {
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #eee;
+    }
+    .card-section:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    /* Header */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #e0e0e0;
+    }
+    .status-dot {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      width: 14px;
+      height: 14px;
+      background: #38A169;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+    .profile-info {
+      flex: 1;
+      min-width: 200px;
+    }
+    .username {
+      font-size: 22px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 4px;
+    }
+    .fullname {
+      font-size: 15px;
+      color: #777;
+      margin-bottom: 6px;
+    }
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: #B8860B;
+    }
+    .badge-row i { font-size: 16px; }
+    .profile-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-follow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #38A169;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-more {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #555;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    /* Assessment & Usage - screenshot match: teal ring, dark green score */
+    .assessment-usage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .assessment-usage { grid-template-columns: 1fr; } }
+    .score-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .score-section .label {
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      color: #555;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .score-circle-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: conic-gradient(#5BB5A3 0deg 288deg, #E8F4F2 288deg 360deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 4px #87D2C4;
+    }
+    .score-inner {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .score-value {
+      font-size: 42px;
+      font-weight: 700;
+      color: #1E514B;
+      line-height: 1;
+    }
+    .score-tier {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      font-size: 14px;
+      color: #555;
+    }
+    .score-tier i { color: #B8860B; }
+    .usage-section .headline {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 12px;
+    }
+    .usage-section .headline strong { font-weight: 700; }
+    .university-logos {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .uni-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #666;
+    }
+    .more-count {
+      font-size: 12px;
+      color: #999;
+      margin-left: 4px;
+      padding: 4px 10px;
+      background: #f0f0f0;
+      border-radius: 20px;
+    }
+    .chart-placeholder {
+      height: 80px;
+      background: linear-gradient(180deg, rgba(135,210,196,0.2) 0%, transparent 100%);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    .chart-placeholder::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #87D2C4 15%, #5BB5A3 50%, #87D2C4 85%, transparent 100%);
+      border-radius: 2px;
+      opacity: 0.9;
+      clip-path: polygon(0 100%, 5% 80%, 12% 60%, 20% 70%, 28% 40%, 35% 55%, 42% 35%, 50% 50%, 58% 30%, 65% 45%, 72% 25%, 80% 40%, 88% 20%, 95% 35%, 100% 15%);
+    }
+    .chart-label {
+      font-size: 13px;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .chart-label i { color: #5BB5A3; }
+
+    /* Engagement */
+    .engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 600px) { .engagement-grid { grid-template-columns: repeat(2, 1fr); } }
+    .engagement-item {
+      text-align: center;
+    }
+    .engagement-item i {
+      font-size: 24px;
+      color: #2E7D32;
+      margin-bottom: 8px;
+    }
+    .engagement-item.community i { color: #B8860B; }
+    .engagement-item .value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      display: block;
+    }
+    .engagement-item .label {
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* Recognitions */
+    .recognitions .section-title {
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      color: #555;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .recognitions .section-title i { color: #B8860B; }
+    .badges-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .rec-badge {
+      flex: 1;
+      min-width: 180px;
+      padding: 16px;
+      border-radius: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .rec-badge.elite { background: #FFFACD; }
+    .rec-badge.trusted { background: #E8F5E9; }
+    .rec-badge.active { background: #E8F5E9; }
+    .rec-badge i {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .rec-badge.elite i { color: #B8860B; }
+    .rec-badge.trusted i { color: #2E7D32; }
+    .rec-badge.active i { color: #2E7D32; }
+    .rec-badge .title { font-weight: 700; font-size: 15px; color: #333; margin-bottom: 2px; }
+    .rec-badge .subtitle { font-size: 13px; color: #777; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- 1. Header -->
+    <div class="card-section">
+      <div class="profile-header">
+        <div class="avatar-wrap">
+          <img class="avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Kaya" alt="Profile">
+          <span class="status-dot"></span>
+        </div>
+        <div class="profile-info">
+          <div class="username">Prof_Kaya_Hiroko</div>
+          <div class="fullname">Kaya Hiroko</div>
+          <div class="badge-row">
+            <i class="fas fa-shield-halved"></i>
+            <span>Gold – Assessment Mentor</span>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <button class="btn-follow"><i class="fas fa-user-plus"></i> Follow</button>
+          <button class="btn-more"><i class="fas fa-ellipsis-h"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Assessment + Reuse (screenshot layout) -->
+    <div class="card-section center-align">
+      <div class="assessment-usage center-align">
+        <div class="score-section center-align">
+          <div class="label">Assessment Craft Score</div>
+          <div class="score-circle-wrap">
+            
+              <div class="score-inner">
+                <span class="score-value">742</span>
+                <span class="score-tier"><i class="fas fa-award"></i> Top 1% <i class="fas fa-award"></i></span>
+              </div>
+            
+          </div>
+        </div>
+        <div class="usage-section">
+          <p class="headline">Reused <strong>38</strong> times across <strong>8</strong> universities</p>
+          <div class="university-logos">
+            <div class="uni-logo" style="background:#c62828;color:#fff">1</div>
+            <div class="uni-logo" style="background:#F9A825;color:#fff">2</div>
+            <div class="uni-logo" style="background:#1565c0;color:#fff">IF</div>
+            <div class="uni-logo" style="background:#5D4037;color:#fff">3</div>
+            <div class="uni-logo" style="background:#2E7D32;color:#fff">4</div>
+            <div class="uni-logo" style="background:#66BB6A;color:#fff">5</div>
+            <span class="more-count">+3 more</span>
+          </div>
+          <div class="chart-placeholder"></div>
+          <div class="chart-label">Last 30 Days <i class="fas fa-arrow-up"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Engagement stats -->
+    <div class="card-section">
+      <div class="engagement-grid">
+        <div class="engagement-item">
+          <i class="fas fa-leaf"></i>
+          <span class="value">7</span>
+          <span class="label">Contributions</span>
+        </div>
+        <div class="engagement-item">
+          <i class="fas fa-users"></i>
+          <span class="value">12</span>
+          <span class="label">Followers</span>
+        </div>
+        <div class="engagement-item">
+          <i class="fas fa-user-plus"></i>
+          <span class="value">38</span>
+          <span class="label">Following</span>
+        </div>
+        <div class="engagement-item community">
+          <i class="fas fa-star"></i>
+          <span class="value">1,280</span>
+          <span class="label">Community Points</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Recognitions -->
+    <div class="card-section recognitions">
+      <div class="section-title"><i class="fas fa-star"></i> Recognitions</div>
+      <div class="badges-row">
+        <div class="rec-badge elite">
+          <i class="fas fa-shield-halved"></i>
+          <div>
+            <div class="title">Elite Educator</div>
+            <div class="subtitle">Top 1% contributors</div>
+          </div>
+        </div>
+        <div class="rec-badge trusted">
+          <i class="fas fa-circle-check"></i>
+          <div>
+            <div class="title">Trusted Educator</div>
+            <div class="subtitle">Verified by community</div>
+          </div>
+        </div>
+        <div class="rec-badge active">
+          <i class="fas fa-leaf"></i>
+          <div>
+            <div class="title">Active Educator</div>
+            <div class="subtitle">Consistent Contributor</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

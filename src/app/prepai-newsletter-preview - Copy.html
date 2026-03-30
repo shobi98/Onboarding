@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrepAI Community Weekly #02</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #e8ecf0;
+  font-family: Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding: 32px 12px;
+}
+a { text-decoration: none; color: inherit; }
+
+.email-container {
+  max-width: 620px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 40px rgba(10,30,60,0.12);
+}
+
+/* ── HEADER ── */
+.header {
+  background: #1a2d50;
+  padding: 28px 24px 22px;
+  text-align: center;
+  position: relative;
+}
+.header::before,
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 28px;
+  height: 100%;
+}
+.header::before {
+  left: 0;
+  background: linear-gradient(180deg, #2EC4B6 0%, #2EC4B6 30%, transparent 30%, transparent 70%, #2EC4B6 70%);
+  opacity: 0.5;
+}
+.header::after {
+  right: 0;
+  background: linear-gradient(180deg, #2EC4B6 0%, #2EC4B6 30%, transparent 30%, transparent 70%, #2EC4B6 70%);
+  opacity: 0.5;
+}
+.edition-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #7eb8c9;
+  margin-bottom: 10px;
+}
+.header h1 {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+}
+
+/* ── TAGLINE BAR ── */
+.tagline-bar {
+  background: #2EC4B6;
+  padding: 10px 24px;
+  text-align: center;
+}
+.tagline-bar span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #0D1B3E;
+}
+.tagline-dot {
+  margin: 0 12px;
+  color: rgba(13,27,62,0.35);
+}
+
+/* ── INTRO SECTION ── */
+.intro-section {
+  padding: 32px 28px 24px;
+  border-bottom: 1px solid #edf2f7;
+  position: relative;
+}
+.intro-section::before,
+.intro-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 18px;
+  height: 100%;
+}
+.intro-section::before {
+  left: 0;
+  background: linear-gradient(180deg, transparent 10%, #2EC4B6 10%, #2EC4B6 40%, transparent 40%, transparent 65%, #2EC4B6 65%, #2EC4B6 90%, transparent 90%);
+  opacity: 0.15;
+}
+.intro-section::after {
+  right: 0;
+  background: linear-gradient(180deg, transparent 10%, #2EC4B6 10%, #2EC4B6 40%, transparent 40%, transparent 65%, #2EC4B6 65%, #2EC4B6 90%, transparent 90%);
+  opacity: 0.15;
+}
+.intro-bold {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.75;
+  color: #1a2d50;
+  margin-bottom: 18px;
+}
+.intro-light {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #5a6478;
+  margin-bottom: 12px;
+}
+.intro-italic {
+  font-size: 13px;
+  font-style: italic;
+  color: #9aa3b2;
+}
+
+/* ── SECTION HEADERS ── */
+.section-header {
+  padding: 28px 28px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a2d50;
+  white-space: nowrap;
+}
+.section-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, #dde3ee, transparent);
+}
+
+/* ── POST CARDS ── */
+.posts-container {
+  padding: 18px 28px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.post-card {
+  background: #ffffff;
+  border: 1px solid #e4eaf4;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(13,27,62,0.08);
+  transition: box-shadow 0.2s;
+}
+.post-card:hover {
+  box-shadow: 0 6px 24px rgba(13,27,62,0.14);
+}
+.post-accent { height: 4px; }
+.acc-teal   { background: #2EC4B6; }
+.acc-purple { background: #7B5EA7; }
+.acc-orange { background: #F4845F; }
+.acc-green  { background: #2A9D6F; }
+.acc-red    { background: #E05252; }
+.acc-blue   { background: #3B82F6; }
+.acc-amber  { background: #D97706; }
+.post-block-hdr {
+  padding: 12px 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.post-subject {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.ps-teal   { background: #e6faf8; color: #1a9e96; }
+.ps-purple { background: #f0ecfa; color: #6b4e9e; }
+.ps-orange { background: #fef0eb; color: #d0613a; }
+.ps-green  { background: #e6f7f0; color: #1e8a5c; }
+.ps-blue   { background: #eff6ff; color: #2563eb; }
+.post-helpful {
+  font-size: 10px;
+  font-weight: 600;
+  color: #9aa3b2;
+}
+.post-preview {
+  margin: 14px 16px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #eef1f8;
+  background: #f8f9fb;
+  padding: 14px 16px;
+  line-height: 0;
+}
+.post-preview-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.post-preview-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #dde3ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.post-preview-meta {
+  font-size: 11px;
+  color: #8895a7;
+}
+.post-preview-meta strong {
+  color: #1a2d50;
+  font-weight: 600;
+}
+.post-preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.post-preview-tags span {
+  font-size: 10px;
+  color: #8895a7;
+  background: #edf1f7;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.post-card-body {
+  padding: 18px 18px 20px;
+}
+.post-title {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a2d50;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.post-excerpt {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #5a6480;
+  margin-bottom: 16px;
+}
+.post-excerpt strong { color: #1a2d50; font-weight: 700; }
+.post-cta-btn {
+  display: inline-block;
+  background: #1a2d50;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.post-cta-btn:hover { background: #243f6c; }
+
+/* ── COMMUNITY DARK SECTION ── */
+.community-dark-wrap {
+  padding: 24px 28px;
+}
+.community-dark {
+  background: #0f1e3d;
+  padding: 0;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(13,27,62,0.18);
+}
+.community-dark-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 28px;
+  border-bottom: 1px solid rgba(46,196,182,0.15);
+}
+.community-dark-header .star {
+  color: #2EC4B6;
+  font-size: 14px;
+}
+.community-dark-header span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #2EC4B6;
+}
+.community-dark-body {
+  padding: 28px 32px 32px;
+}
+.community-dark-body p {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 20px;
+}
+.community-dark-body p:last-child { margin-bottom: 0; }
+.community-dark-body strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+.community-dark-body em {
+  color: #2EC4B6;
+  font-style: italic;
+}
+
+/* ── CTA SECTION ── */
+.cta-section {
+  padding: 10px 28px 32px;
+  text-align: center;
+  border-bottom: 1px solid #edf2f7;
+}
+.cta-button {
+  display: inline-block;
+  background: #1a2d50;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  letter-spacing: 0.3px;
+}
+.cta-button:hover {
+  background: #243f6c;
+}
+
+/* ── BOTTOM BANNER ── */
+.bottom-banner {
+  line-height: 0;
+}
+.bottom-banner img {
+  width: 100%;
+  display: block;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #1a2d50;
+  padding: 20px 28px;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+<div class="email-container">
+
+  <!-- ═══ SECTION 1: HEADER (Screenshot 1) ═══ -->
+  <div class="header">
+    <p class="edition-label">PrepAI Community Weekly #02</p>
+    <h1>&#127793; The Best Assessment Discussions This Week</h1>
+  </div>
+
+  <div class="tagline-bar">
+    <span>Be Seen</span>
+    <span class="tagline-dot">&bull;</span>
+    <span>Be Trusted</span>
+    <span class="tagline-dot">&bull;</span>
+    <span>Be Recognised</span>
+  </div>
+
+  <!-- ═══ SECTION 2: INTRO TEXT (Screenshot 2) ═══ -->
+  <div class="intro-section">
+    <p class="intro-bold">
+      This week, an engineering faculty member shared a mechanics test he
+      had been sitting on for days, unsure whether the difficulty was right.
+      Within 48 hours, two educators had weighed in with specific, practical
+      suggestions.
+    </p>
+    <p class="intro-light">
+      No faculty meeting. No waiting for a free hour from a senior colleague. Just a post, honest feedback, and a better assessment.
+    </p>
+    <!-- <p class="intro-italic">Here is what else stood out this week.</p> -->
+  </div>
+
+  <!-- ═══ SECTION 3: THIS WEEK'S TOP POSTS ═══ -->
+  <div class="section-header">
+    <h2>Here is what else stood out this week.</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="posts-container">
+
+    <!-- POST 1 -->
+    <div class="post-card">
+      <div class="post-accent acc-teal"></div>
+      <div class="post-block-hdr">
+        <span class="post-subject ps-teal">Critical Thinking</span>
+        <span class="post-helpful">🌱 7 Found Helpful</span>
+      </div>
+      <div class="post-preview">
+        <div class="post-preview-user">
+          <div class="post-preview-avatar">&#128100;</div>
+          <div class="post-preview-meta"><strong>DrGideonAnapey</strong> &middot; Shared for peer review</div>
+        </div>
+        <div class="post-preview-tags">
+          <span>#CriticalThinking</span><span>#Rubrics</span><span>#Assessment</span><span>#InformationLiteracy</span>
+        </div>
+      </div>
+      <div class="post-card-body">
+        <h3 class="post-title">Rubrics to Assess Critical Thinking and Information Literacy</h3>
+        <p class="post-excerpt">A practical rubric for something most educators want but rarely have &mdash; a tool that actually measures critical thinking rather than just describing it.</p>
+        <a href="https://community.prepai.io/post/kdLB6k/rubrics-to-assess-critical-thinking-and-informatio" class="post-cta-btn">See how other educators are using it &rsaquo;</a>
+      </div>
+    </div>
+
+    <!-- POST 2 -->
+    <div class="post-card">
+      <div class="post-accent acc-purple"></div>
+      <div class="post-block-hdr">
+        <span class="post-subject ps-purple">Psychology</span>
+        <span class="post-helpful">🔁 Reused by 1 educator</span>
+      </div>
+      <div class="post-preview">
+        <div class="post-preview-user">
+          <div class="post-preview-avatar">&#128100;</div>
+          <div class="post-preview-meta"><strong>Prof_Juliana_Njiriri</strong> &#129353; &middot; Peer review before exam</div>
+        </div>
+        <div class="post-preview-tags">
+          <span>#Psychology</span><span>#Masters</span><span>#QuestionPaper</span><span>#PeerReview</span>
+        </div>
+      </div>
+      <div class="post-card-body">
+        <h3 class="post-title">Psychology Masters Level Question Paper</h3>
+        <p class="post-excerpt">A postgraduate psychology paper shared for peer review before going live. Designing at Masters level carries a different kind of pressure.</p>
+        <a href="https://community.prepai.io/post/1iCBkw/pshycology-masters-level-qp" class="post-cta-btn">Read what the community said &rsaquo;</a>
+      </div>
+    </div>
+
+    <!-- POST 3 -->
+    <div class="post-card">
+      <div class="post-accent acc-orange"></div>
+      <div class="post-block-hdr">
+        <span class="post-subject ps-orange">Engineering</span>
+        <span class="post-helpful">🌱 5 Found Helpful        </span>
+      </div>
+      <div class="post-preview">
+        <div class="post-preview-user">
+          <div class="post-preview-avatar">&#128100;</div>
+          <div class="post-preview-meta"><strong>Dr_Sneha_Sharma</strong> &#129353; &middot; Difficulty check</div>
+        </div>
+        <div class="post-preview-tags">
+          <span>#Engineering</span><span>#Mechanics</span><span>#DifficultyLevel</span><span>#2ndYear</span>
+        </div>
+      </div>
+      <div class="post-card-body">
+        <h3 class="post-title">2nd Year Engineering Mechanics Test</h3>
+        <p class="post-excerpt">A second year mechanics test with one honest question behind it &mdash; <strong>"Is the difficulty level right for where students are right now?"</strong></p>
+        <a href="https://community.prepai.io/post/E11bqt/2nd-year-engineering-mechanics-test" class="post-cta-btn">Join the difficulty debate &rsaquo;</a>
+      </div>
+    </div>
+
+    <!-- POST 4 -->
+    <div class="post-card">
+      <div class="post-accent acc-green"></div>
+      <div class="post-block-hdr">
+        <span class="post-subject ps-green">Microbiology</span>
+        <span class="post-helpful">🌱 8 Helpful · 🔁 Reused by 2</span>
+      </div>
+      <div class="post-preview">
+        <div class="post-preview-user">
+          <div class="post-preview-avatar">&#128100;</div>
+          <div class="post-preview-meta"><strong>Dr._Roland_Osei_Saahene</strong> &#129353; &middot; Shared before finalising</div>
+        </div>
+        <div class="post-preview-tags">
+          <span>#Microbiology</span><span>#Assessment</span><span>#3rdYear</span><span>#Biology</span>
+        </div>
+      </div>
+      <div class="post-card-body">
+        <h3 class="post-title">3rd Year Microbiology Test</h3>
+        <p class="post-excerpt">A third year microbiology assessment shared before finalising. The discussion that followed focused on a question every biology educator eventually faces.</p>
+        <a href="https://community.prepai.io/post/MNFgtn/3rd-year-microbiology-test" class="post-cta-btn">Read the post and join the discussion &rsaquo;</a>
+      </div>
+    </div>
+
+    <!-- POST 5 -->
+    <div class="post-card">
+      <div class="post-accent acc-blue"></div>
+      <div class="post-block-hdr">
+        <span class="post-subject ps-blue">Assessment Design</span>
+        <span class="post-helpful">&#128293; Most discussed this week</span>
+      </div>
+      <div class="post-preview">
+        <div class="post-preview-user">
+          <div class="post-preview-avatar">&#128100;</div>
+          <div class="post-preview-meta"><strong>mr.akash</strong> &#129353; &middot; 06/03/2026 &middot; Education</div>
+        </div>
+        <div class="post-preview-tags">
+          <span>#Education</span><span>#Assessment</span><span>#Quiz</span><span>#Geography</span>
+        </div>
+      </div>
+      <div class="post-card-body">
+        <h3 class="post-title">My Question Is Too Long and I Don't Know How to Fix It</h3>
+        <p class="post-excerpt">Three questions pretending to be one. No polished draft &mdash; just an educator willing to say <strong>"I can see the problem but I can't fix it."</strong> The community fixed it together.</p>
+        <a href="https://community.prepai.io/post/2TgfhI/my-question-is-too-long-and-i-dont-know-how-to-fix" class="post-cta-btn">See how they fixed it &rsaquo;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══ SECTION 4: WHAT THE COMMUNITY IS REALLY DOING THIS WEEK ═══ -->
+  <div class="community-dark-wrap">
+    <div class="community-dark">
+      <div class="tagline-bar" style="color: floralwhite;">
+        <span class="star">&#10022;</span>
+        <span >What the Community Is Really Doing This Week</span>
+      </div>
+      <div class="community-dark-body">
+        <p>Look at the five posts above and you will notice something</p> <p>None of them are polished publications. None of them are finished products. Every single one is an educator mid-process, asking for a perspective they cannot get alone.
+        </p>
+        <p>A rubric that needs real-world testing. A Masters paper that needs a second opinion. A mechanics test where difficulty balance is uncertain. A microbiology assessment that might be too recall-heavy. A question the author knows is broken but cannot quite see how to fix.</p>
+        <p>These are not signs of weakness. They are signs of educators who care enough about the quality of their work to question it before it reaches students</p>
+        <p>That is what good assessment practice actually looks like. And it is what the PrepAI Community is built around.</p>
+        <p style="font-style: italic; font-size: small;">Every post in this week's digest started as a doubt. One educator decided to share it instead of sitting with it alone. Your draft deserves the same.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 5: CTA BUTTON (Screenshot 3) ═══ -->
+  <div class="cta-section">
+    <a href="https://community.prepai.io/create-post" class="cta-button">Post Your Draft in the PrepAI Community</a>
+  </div>
+
+  <!-- ═══ SECTION 6: BOTTOM BANNER IMAGE (Screenshot 4) ═══ -->
+  <div class="bottom-banner">
+    <a href="https://community.prepai.io">
+      <img src="../../public/real-talk-assessments-banner.png" alt="Real Talk on Assessments — See what educators are discussing and fixing this week.">
+    </a>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer">
+    &copy; 2026 PrepAI Community. All rights reserved.<br>
+    You are receiving this because you are a valued educator in our network.
+  </div>
+
+</div>
+
+</body>
+</html>

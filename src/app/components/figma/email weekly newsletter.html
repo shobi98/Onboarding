@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333333;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .header {
+            background-color: #1a365d;
+            color: #ffffff;
+            padding: 30px 20px 24px;
+            text-align: center;
+        }
+        .header .edition {
+            font-size: 12px;
+            color: #a0b4d0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 8px 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+        .tagline-bar {
+            background-color: #243b5e;
+            text-align: center;
+            padding: 10px 20px;
+        }
+        .tagline-bar span {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .tagline-seen { color: #ffffff; }
+        .tagline-dot { color: rgba(255,255,255,0.3); margin: 0 8px; }
+        .tagline-trusted { color: #ffffff; }
+        .tagline-recognised { color: #ffffff; }
+        .content-section {
+            padding: 30px 20px;
+        }
+        .intro-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #4a5568;
+            border-left: 4px solid #c8a45a;
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        .intro-bridge {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+        .section-heading {
+            font-size: 18px;
+            color: #1a365d;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .post-card {
+            background-color: #fafbfc;
+            border: 1px solid #e2e8f0;
+            border-left: 3px solid #c8a45a;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .post-tag {
+            display: inline-block;
+            background-color: #eef2f7;
+            color: #1a365d;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .post-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            color: #2d3748;
+        }
+        .post-excerpt {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #4a5568;
+            margin: 0 0 15px 0;
+        }
+        .post-link {
+            display: inline-block;
+            color: #2b6cb0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .post-link:hover {
+            text-decoration: underline;
+        }
+        .highlight-section {
+            background-color: #fffbf0;
+            padding: 30px 20px;
+            border-top: 3px solid #c8a45a;
+        }
+        .highlight-section h2 {
+            margin-top: 0;
+            color: #1a365d;
+            font-size: 20px;
+        }
+        .highlight-section p {
+            line-height: 1.7;
+            color: #2d3748;
+            font-size: 15px;
+        }
+        .steps {
+            background-color: #ffffff;
+            padding: 30px 20px;
+        }
+        .step-item {
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #4a5568;
+        }
+        .cta-button-container {
+            text-align: center;
+            padding: 20px 0 30px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #1a365d;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .cta-button:hover {
+            background-color: #2d4a7a;
+        }
+        .footer {
+            background-color: #1a365d;
+            color: #a0aec0;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="email-container">
+
+    <!-- Header -->
+    <div class="header">
+        <p class="edition"> PrepAI Community Weekly #01</p>
+        <h1>&#127793; The Best Assessment Discussions This Week</h1>
+    </div>
+
+    <!-- Tagline Bar - highlighted separately -->
+    <div class="tagline-bar">
+        <span class="tagline-seen">Be Seen</span>
+        <span class="tagline-dot">&bull;</span>
+        <span class="tagline-trusted">Be Trusted</span>
+        <span class="tagline-dot">&bull;</span>
+        <span class="tagline-recognised">Be Recognised</span>
+    </div>
+
+    <!-- Intro -->
+    <div class="content-section">
+        <div class="intro-text">
+            This week, an economics professor shared a draft question she wasn't fully confident about. By the next morning, three educators had already helped her fix it, before a single student saw the paper.<br><br>
+            No back-and-forth emails. No waiting for a department meeting. No discovering the problem during grading.<br><br>
+            Just a post, some honest feedback, and a better assessment.
+        </div>
+        
+
+        <p class="intro-bridge">
+            This is what happens when educators or professors stop designing assessments alone, and that's exactly what's been happening inside the PrepAI Community this week.
+        </p>
+
+        <h2 class="section-heading">Here's what stood out</h2>
+
+        <!-- Post 1 -->
+        <div class="post-card">
+            <span class="post-tag">Economics</span>
+            <h3 class="post-title">Before I finalize this Economics question, I want another teacher's eyes on it</h3>
+            <p class="post-excerpt">Most of my Class 12 paper is ready. But this one question has been sitting in my drafts for two days and I keep going back and forth on it:</p>
+            <a href="https://community.prepai.io/post/E2h9wh/before-i-finalize-this-economics-question-i-want-a" class="post-link">Read what the community said &rarr;</a>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="post-card">
+            <span class="post-tag">History &amp; Colonial Studies</span>
+            <h3 class="post-title">Mini Case Study for Discussion</h3>
+            <p class="post-excerpt">Imagine you are an advisor to a colonial administrator in the early 1900s. A new policy is being proposed that increases taxation on local farmers to fund infrastructure development.            </p>
+            <a href="https://community.prepai.io/post/4Lzask/colonial-policy-case" class="post-link">Read the full discussion &rarr;</a>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="post-card">
+            <span class="post-tag">Entrepreneurship / Business</span>
+            <h3 class="post-title">Does This Question Paper Build a Founder Mindset?</h3>
+            <p class="post-excerpt">Sharing a question paper on business plan evaluation. My goal was to test feasibility analysis 
+                and risk assessment, not just definitions of entrepreneurship. 
+                </p>
+            <a href="https://community.prepai.io/post/3cDaFH/does-this-question-paper-build-founder-mindset" class="post-link">Join the debate &rarr;</a>
+        </div>
+
+        <!-- Post 4 -->
+        <div class="post-card">
+            <span class="post-tag">Pedagogy</span>
+            <h3 class="post-title">Rethinking my teaching approach this semester</h3>
+            <p class="post-excerpt">Been mixing things up this year. Peer teaching was one that really worked, students understood concepts better when they had to explain it to each other. 
+            </p>
+            <a href="https://community.prepai.io/post/IAqNAA/rethinking-my-teaching-approach-this-semester" class="post-link">Read this one &rarr;</a>
+        </div>
+
+        <!-- Post 5 -->
+        <div class="post-card">
+            <span class="post-tag">Inflation</span>
+            <h3 class="post-title">Inflation as a moderating influence on the nexus between corporate sustainability and working capital management efficiency</h3>
+            <!-- <p class="post-excerpt">A deep dive into how inflation intersects with corporate sustainability and working capital management &mdash; see how educators approached this complex topic.</p> -->
+            <a href="https://community.prepai.io/post/COEhba/inflation" class="post-link">See how educators approached this &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Why These Conversations Matter -->
+    <div class="highlight-section">
+        <h2>Why These Conversations Matter</h2>
+        <p>Every one of these posts started because an educator had a doubt, about a question, a structure, a concept, a design choice. Instead of sitting with that doubt alone, they shared it.        </p>
+        <p>And because they shared it, something improved.</p>
+        <p>An ambiguous question caught before an exam means 80 students don't sit there confused. A case study sharpened through peer feedback means students actually engage with it instead of guessing their way through. These conversations made real assessments better for real students this week.</p>
+        <p>Next week's conversations will do the same</p>
+    </div>
+
+    <!-- Want to Be Part of It -->
+    <div class="steps">
+        <h2 style="font-size: 20px; color: #1a365d; margin-top: 0;">Want to Be Part of It?</h2>
+        <p style="color: #4a5568; line-height: 1.7;">
+            You have a draft somewhere, a question you've used twice but always felt was slightly off, a structure you built under pressure and never went back to review.
+        </p>
+        <p style="color: #4a5568; line-height: 1.7;">
+            That's your post. You don't need it to be ready. Sharing it is what makes it ready.
+
+        </p>
+
+        <div class="cta-button-container">
+            <a href="https://community.prepai.io" class="cta-button">Post Your Draft in the PrepAI Community</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2026 PrepAI Community. All rights reserved.<br>
+        You are receiving this because you are a valued educator in our network.
+    </div>
+</div>
+
+</body>
+</html>
